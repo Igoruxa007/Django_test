@@ -1,8 +1,9 @@
-from django.db import models
-from django.conf import settings
-from django.utils import timezone
+from __future__ import annotations
+
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
+from django.db import models
+from django.utils import timezone
 
 
 class Post(models.Model):

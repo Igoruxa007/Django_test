@@ -1,11 +1,13 @@
+from __future__ import annotations
+
+from rest_framework import pagination
 from rest_framework import permissions
 from rest_framework import viewsets
-from rest_framework import pagination
-from .serializers import PostSerializer
-from .serializers import TodoSerializer
+
 from .models import Post
 from .models import Todo
-from rest_framework.response import Response
+from .serializers import PostSerializer
+from .serializers import TodoSerializer
 
 
 class PageNumberSetPagination(pagination.PageNumberPagination):
@@ -25,6 +27,6 @@ class PostViewSet(viewsets.ModelViewSet):
 class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.AllowAny,
     ]
     serializer_class = TodoSerializer

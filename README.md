@@ -1,2 +1,6 @@
 # social_network
-At this project I learn and try to create backend on Django.
+
+poetry run python manage.py makemigrations
+poetry run python manage.py migrate
+
+poetry run python manage.py runserver / make run

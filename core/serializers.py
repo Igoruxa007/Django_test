@@ -17,7 +17,7 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = (
             'id', 'h1', 'title', 'slug', 'description',
-            'content', 'image', 'created_at', 'author',
+            'content', 'created_at', 'author',
         )
         lookup_field = 'slug'
         extra_kwargs = {

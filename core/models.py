@@ -14,7 +14,6 @@ class Post(models.Model):
     slug = models.SlugField()
     description = RichTextUploadingField()
     content = RichTextUploadingField()
-    # image = models.ImageField()
     created_at = models.DateField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -27,6 +26,15 @@ class Todo(models.Model):
     description = models.CharField(max_length=300, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     done = models.BooleanField(default=False)
+
+    def __str__(self) -> Any:
+        return self.title
+
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    description = models.CharField(max_length=500)
 
     def __str__(self) -> Any:
         return self.title

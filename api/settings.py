@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'core',
     'ckeditor',
     'ckeditor_uploader',
+    'django_extensions',
+    'drf_yasg',
 ]
 
 LANGUAGE_CODE = 'ru-ru'

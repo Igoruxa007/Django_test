@@ -11,7 +11,7 @@ from django.utils import timezone
 class Post(models.Model):
     h1 = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
-    slug = models.SlugField()
+    slug = models.SlugField(default="")
     description = RichTextUploadingField()
     content = RichTextUploadingField()
     created_at = models.DateField(default=timezone.now)

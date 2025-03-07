@@ -5,9 +5,9 @@ from rest_framework import permissions
 from rest_framework import viewsets
 
 from .models import Post
-from .models import Todo
+from .models import Todo, Book
 from .serializers import PostSerializer
-from .serializers import TodoSerializer
+from .serializers import TodoSerializer, BookSerializer
 
 
 class PageNumberSetPagination(pagination.PageNumberPagination):
@@ -30,3 +30,9 @@ class TodoViewSet(viewsets.ModelViewSet):
         permissions.AllowAny,
     ]
     serializer_class = TodoSerializer
+
+
+class BookViewSet(viewsets.ModelViewSet):
+    serializer_class = BookSerializer
+    queryset = Book.objects.all()
+    permission_classes = [permissions.AllowAny]

@@ -17,7 +17,7 @@ class Post(models.Model):
     created_at = models.DateField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self) -> Any:
+    def __str__(self) -> str:
         return self.title
 
 
@@ -27,14 +27,23 @@ class Todo(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     done = models.BooleanField(default=False)
 
-    def __str__(self) -> Any:
+    def __str__(self) -> str:
         return self.title
+
+
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+    date_of_birth = models.DateField()
+    description = models.CharField(max_length=500)
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = models.CharField(max_length=500)
 
-    def __str__(self) -> Any:
+    def __str__(self) -> str:
         return self.title

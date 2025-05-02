@@ -5,8 +5,9 @@ from rest_framework import permissions
 from rest_framework import viewsets
 
 from .models import Post
-from .models import Todo, Book
+from .models import Todo, Book, BooksAuthor
 from .serializers import PostSerializer
+from .serializers import AuthorSerializer
 from .serializers import TodoSerializer, BookSerializer
 
 
@@ -35,4 +36,10 @@ class TodoViewSet(viewsets.ModelViewSet):
 class BookViewSet(viewsets.ModelViewSet):
     serializer_class = BookSerializer
     queryset = Book.objects.all()
+    permission_classes = [permissions.AllowAny]
+
+
+class AuthorViewSet(viewsets.ModelViewSet):
+    serializer_class = AuthorSerializer
+    queryset = BooksAuthor.objects.all()
     permission_classes = [permissions.AllowAny]

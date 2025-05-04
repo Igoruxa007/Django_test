@@ -3,6 +3,8 @@ from __future__ import annotations
 from rest_framework import pagination
 from rest_framework import permissions
 from rest_framework import viewsets
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 from .models import Post
 from .models import Todo, Book, BooksAuthor
@@ -17,6 +19,7 @@ class PageNumberSetPagination(pagination.PageNumberPagination):
     ordering = 'created_at'
 
 
+@method_decorator(cache_page(60 * 150), name='dispatch')
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all()

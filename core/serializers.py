@@ -3,7 +3,7 @@ from __future__ import annotations
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from .models import Post, Author
+from .models import Post, BooksAuthor
 from .models import Todo, Book
 
 
@@ -35,7 +35,7 @@ class TodoSerializer(serializers.ModelSerializer):
 class AuthorSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Author
+        model = BooksAuthor
         fields = '__all__'
 
 

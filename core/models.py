@@ -31,7 +31,7 @@ class Todo(models.Model):
         return self.title
 
 
-class Author(models.Model):
+class BooksAuthor(models.Model):
     name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
     description = models.CharField(max_length=500)
@@ -42,7 +42,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(BooksAuthor, on_delete=models.CASCADE)
     description = models.CharField(max_length=500)
 
     def __str__(self) -> str:

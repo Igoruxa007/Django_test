@@ -30,7 +30,6 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token'),
     path('api/refresh_token/', TokenRefreshView.as_view(), name='refresh_token'),
     path('api/refresh_token/', TokenRefreshView.as_view(), name='refresh_token'),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api/', include('core.urls')),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

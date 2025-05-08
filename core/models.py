@@ -1,8 +1,5 @@
 from __future__ import annotations
 
-from typing import Any
-
-from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
@@ -11,9 +8,9 @@ from django.utils import timezone
 class Post(models.Model):
     h1 = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
-    slug = models.SlugField(default="")
-    description = RichTextUploadingField()
-    content = RichTextUploadingField()
+    slug = models.SlugField(default='')
+    description = models.CharField(max_length=300, blank=True)
+    content = models.CharField(max_length=300, blank=True)
     created_at = models.DateField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 

@@ -1,16 +1,19 @@
 from __future__ import annotations
 
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework import pagination
 from rest_framework import permissions
 from rest_framework import viewsets
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
 
+from .models import Book
+from .models import BooksAuthor
 from .models import Post
-from .models import Todo, Book, BooksAuthor
-from .serializers import PostSerializer
+from .models import Todo
 from .serializers import AuthorSerializer
-from .serializers import TodoSerializer, BookSerializer
+from .serializers import BookSerializer
+from .serializers import PostSerializer
+from .serializers import TodoSerializer
 
 
 class PageNumberSetPagination(pagination.PageNumberPagination):
